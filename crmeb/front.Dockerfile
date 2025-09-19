@@ -6,7 +6,7 @@ WORKDIR /app
 
 # 复制jar包到容器中
 #COPY target/*.jar app.jar
-COPY ./workspace/crmeb_java/crmeb/crmeb-front/target/*.jar Crmeb-front.jar
+COPY ./workspace/new-shop/crmeb/crmeb-front/target/*.jar Crmeb-front.jar
 
 # 暴露应用端口
 EXPOSE 20510
@@ -15,6 +15,6 @@ EXPOSE 20510
 ENV JAVA_OPTS="-Xms512m -Xmx1024m"
 
 # 启动应用
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar app.jar"]
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar Crmeb-front.jar"]
 
 
