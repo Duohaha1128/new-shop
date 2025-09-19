@@ -3,10 +3,11 @@ FROM openjdk:8-jre
 
 # 设置工作目录
 WORKDIR /app
-
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # 复制jar包到容器中
 #COPY target/*.jar app.jar
-COPY ./workspace/new-shop/crmeb/crmeb-front/target/*.jar Crmeb-front.jar
+COPY ./new-shop/crmeb/crmeb-front/target/*.jar Crmeb-front.jar
 
 # 暴露应用端口
 EXPOSE 20510

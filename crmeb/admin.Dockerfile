@@ -6,8 +6,9 @@ WORKDIR /app
 
 # 复制jar包到容器中
 #COPY target/*.jar app.jar
-COPY ./workspace/new-shop/crmeb/crmeb-admin/target/*.jar Crmeb-admin.jar
-
+COPY ./new-shop/crmeb/crmeb-admin/target/*.jar Crmeb-admin.jar
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # 暴露应用端口
 EXPOSE 20400
 
