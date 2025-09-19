@@ -12,9 +12,9 @@ COPY ./workspace/new-shop/crmeb/crmeb-admin/target/*.jar Crmeb-admin.jar
 EXPOSE 20400
 
 # 设置JVM启动参数
-ENV JAVA_OPTS="-Xms512m -Xmx1024m"
+#ENV JAVA_OPTS="-Xms512m -Xmx1024m"
 
 # 启动应用
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar Crmeb-admin.jar"]
-
+#ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar Crmeb-admin.jar"]
+ENTRYPOINT ["java","-jar","Crmeb-admin.jar"]
 
